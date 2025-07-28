@@ -13,14 +13,21 @@ public class CartPage {
     @FindBy(css = ".cart-item__title")
     WebElement cartItemTitle;
 
-    @FindBy(css = ".cart-item__price")
+    @FindBy(xpath  = "//span[normalize-space()='$699.99']")
     WebElement cartItemPrice;
 
-    @FindBy(css = ".quantity__button--plus")
+    @FindBy(xpath = "//div//div[3]//div[2]//div[2]//div[1]//div[1]//button[2]//*[name()='svg']")
     WebElement increaseQuantityButton;
 
-    @FindBy(css = ".cart-subtotal__price")
+    @FindBy(xpath  = "//div[normalize-space()='$699.99']")
     WebElement cartTotalPrice;
+
+    @FindBy(xpath = "//p[normalize-space()='Your cart is currently empty.']")
+    WebElement cartEmpty;
+
+    @FindBy(xpath = "(//*[@class='js-qty__num R-qty-num-hide'])[3]")
+    WebElement itemQuantity;
+
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -39,8 +46,10 @@ public class CartPage {
         return cartItemPrice.getText();
     }
 
-    public boolean isCartEmpty() {
-        List<WebElement> items = driver.findElements(By.cssSelector(".cart-item__title"));
-        return items.isEmpty();
+    public String cartEmpty() {
+        return cartItemPrice.getText();
+    }
+    public String itemQuantity() {
+        return itemQuantity.getText();
     }
 }

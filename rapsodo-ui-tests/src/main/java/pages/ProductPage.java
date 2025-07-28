@@ -8,11 +8,15 @@ import org.openqa.selenium.support.PageFactory;
 public class ProductPage {
     WebDriver driver;
 
-    @FindBy(xpath = "//button[contains(text(),'ADD TO CART')]")
+    @FindBy(xpath = "//button[normalize-space()='Add to Cart']")
     WebElement addToCartButton;
 
-    @FindBy(css = ".product__price") // örnek
+    @FindBy(css = "div[class='FlexRow Gap8 AlignItemsCenter ProductStickySinglePriceWrapper'] span[class='Acumin sticky-product-price']") 
     WebElement productPrice;
+
+    @FindBy(xpath = ".//img[@alt='MLM2PRO™']") 
+    WebElement productImage;
+
 
     public ProductPage(WebDriver driver) {
         this.driver = driver;
@@ -24,6 +28,7 @@ public class ProductPage {
     }
 
     public void clickAddToCart() {
+        productImage.click();
         addToCartButton.click();
     }
 }

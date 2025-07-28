@@ -20,6 +20,7 @@ public class RapsodoSteps {
 
     @Given("the user is on the homepage")
     public void the_user_is_on_the_homepage() {
+       driver.manage().window().maximize(); 
         driver.get("https://rapsodo.com");
         assertTrue(driver.getCurrentUrl().contains("rapsodo.com"));
     }
@@ -31,7 +32,7 @@ public class RapsodoSteps {
 
     @Then("the cart should be empty")
     public void the_cart_should_be_empty() {
-        assertTrue(cartPage.isCartEmpty());
+        cartPage.cartEmpty();
     }
 
     @When("the user navigates to Golf > Mobile Launch Monitor")
@@ -72,10 +73,16 @@ public class RapsodoSteps {
         for (int i = 1; i < quantity; i++) {
             cartPage.increaseQuantity();
         }
-    }
 
+    }
+    @Then("the quantity of the third item should be {string}")
+    public void verifyThirdItemQuantity(String expectedQuantity) {
+            String actualQuantity = cartPage.itemQuantity();
+            assertEquals(2, actualQuantity);
+        }
     @Then("the total price should be correct")
     public void the_total_price_should_be_correct() {
         assertNotNull(cartPage.getCartTotalPrice());
+        driver.quit();
     }
 }

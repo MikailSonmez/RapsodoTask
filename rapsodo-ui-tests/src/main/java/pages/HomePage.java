@@ -8,10 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
     WebDriver driver;
 
-    @FindBy(css = "a[href*='cart']")
+    @FindBy(xpath = "(//*[name()='svg'])[12]")
     WebElement cartIcon;
 
-    @FindBy(linkText = "Golf")
+    @FindBy(xpath = "//a[normalize-space()='GOLF']")
     WebElement golfButton;
 
     public HomePage(WebDriver driver) {

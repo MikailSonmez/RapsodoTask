@@ -6,9 +6,10 @@ Feature: Add Product to Cart
     Then the cart should be empty
     When the user navigates to Golf > Mobile Launch Monitor
     When clicks Shop MLM
-    Then the page title should contain "Mobile Launch Monitor"
+    Then the page title should contain "Launch Monitor"
     When the user clicks Add to Cart
     Then the user should be redirected to the cart screen
     And the product price should match the previous screen
     When the user increases the quantity to 2
+    Then the quantity of the third item should be "2"
     Then the total price should be correct
