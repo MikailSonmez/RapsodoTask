@@ -1,0 +1,11 @@
+{
+    "java.project.sourcePaths": [
+        "rapsodo-ui-tests/src/test/java",
+        "rapsodo-ui-tests/src/main/java",
+        "rapsodo-ui-tests",
+        "src/main/java",
+        "src/test/java"
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic"
+}
